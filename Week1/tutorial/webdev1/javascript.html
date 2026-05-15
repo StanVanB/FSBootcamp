@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript</h1>
+    <script>
+        for (var i = 1; i <= 100; i++) {
+            console.log(i);
+        }
+
+        // do while loop in JavaScript
+        var test = 0;
+        do {
+            console.log("Test is:", test);
+            test++;
+        } while (test < 10);
+
+        // functions in JavaScript
+        function hello() {
+            console.log("Hello Everyone");
+        }
+
+        hello();
+
+        function greet(name) {
+            console.log("Hello " + name);
+        }
+
+        greet("John");
+        greet("Harsh");
+        greet("Andrew");
+        greet("Afnan");
+        greet("Kobi");
+        greet("100");
+
+        // function to display number from 0 to n numbers
+        function displayNumber(num) {
+            var i = 0;
+            while (i <= num) {
+                console.log("Value of i:" + i);
+                i++;
+            }
+        }
+
+        displayNumber(10);
+        displayNumber(30);
+        displayNumber(60);
+            
+        // function to calculate grades
+        function calculateGrades(name, marks) {
+            if (marks >= 90) {
+                console.log(name + " got an A");
+            } else if (marks >= 80) {
+                console.log(name + " got a B");
+            } else if (marks >= 70) {
+                console.log(name + " got a C");
+            } else {
+                console.log(name + " got an F");
+            }
+        }
+
+        calculateGrades("Alice", 95);
+        calculateGrades("Bob", 85);
+        calculateGrades("Charlie", 75);
+
+        // built in functions in JavaScript
+        const name = "Harsh";
+        console.log(name.toUpperCase());
+        console.log(name.toLowerCase());
+
+        var arr = ["BMW", "Audi", "Mercedes"];
+        arr.push("Toyota");
+        arr.push("Honda", "Ford");
+        console.log(arr);
+        console.log(arr.length);
+
+        var emptyArr = [];
+        if (emptyArr.length > 0) {
+            console.log("Array is not empty");
+        } else {
+            console.log("Array is empty");
+        }
+
+        arr.sort();
+        console.log(arr);
+
+        arr.pop(); // removes the last element from the array
+        console.log(arr);
+
+        arr.splice(1, 2); // removes 2 elements starting from index 1
+        console.log(arr);
+
+        var newArr = arr.slice(0, 1); // creates a new array with elements from index 0 to 1 (exclusive)
+        console.log(newArr);
+        console.log(arr);
+
+        // indexOf, includes, forEach, map, filter.
+        // Show examples of || and &&
+        // Use switch
+        if (arr.includes("Audi")) {
+            console.log("Audi is present in the array");
+        } else {
+            console.log("Audi is not present in the array");
+        }
+
+        if (arr.indexOf("Audi") !== -1) {
+            console.log("Audi is present in the array");
+        } else {
+            console.log("Audi is not present in the array");
+        }
+
+        // Show examples of || and &&
+        console.log(arr.includes("BMW") || arr.includes("Audi")); // true || false -> true
+        if (true && !false) {
+            console.log("This will always be true");
+        } else {
+            console.log("This will never be executed");
+        }
+    </script>
+</body>
+</html>
