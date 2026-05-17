@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adopt a Pet</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Adopt a Pet</h1>
+
+        <p>Fill the form below to apply for pet adoption.</p>
+
+        <form action="user.php" method="GET">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <br><br>
+
+            <div class="buttons">
+                <button type="submit" class="submit-btn">Submit</button>
+
+                <button type="reset" class="cancel-btn">Cancel</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
