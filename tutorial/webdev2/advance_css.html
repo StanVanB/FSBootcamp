@@ -1,0 +1,93 @@
+<html>
+   <head>
+    <title>Advance CSS</title>
+    </head>
+    <style>
+        li {
+            display:inline;
+            background-color: yellow;
+        }
+        img {
+            float: right;
+        }
+        .fixed{
+            position: fixed;
+            top: 50px;
+            left: 100px;
+            height: 600px;
+            background-color: red;
+            border: 2px solid black;
+        }
+        .relative{
+            position: relative;
+            top: 50px;
+            left: 200px;
+            height: 600px;
+            background-color: green;
+            border: 2px solid black;
+        }
+        .absolute{
+            position: absolute;
+            top: 50px;
+            height: 80px;
+            background-color: blue;
+            border: 2px solid black;
+        }
+        .abs{
+            left: 50px;
+        }
+        .absolute1{
+            left: 280px;
+        }
+        .absolute2{
+            right: 480px;
+        }
+        .absolute3{
+            right: 220px;
+        }
+        .sticky{
+            position:sticky;
+            top: 0;
+            padding:50px;
+            background-color: orange;
+            border: 2px solid black;
+        }
+    </style>
+<body>
+    <ul>
+        <li>Home</li>
+        <li>About Me</li>
+        <li>Contact</li>
+    </ul>
+    <div class="fixed">
+        This is a fixed element.
+    </div>
+
+    <div class="relative">
+        This is a relative element.
+        <div class="absolute abs">
+            This is an absolute element.
+        </div>
+        <div class="absolute absolute1">
+            This is an absolute element.
+        </div>
+        <div class="absolute absolute2">
+            This is an absolute element.
+        </div>
+        <div class="absolute absolute3">
+            This is an absolute element.
+        </div>
+    </div>
+
+    <div class="sticky">
+        This is a sticky element.
+    </div>
+
+    <div style="padding-bottom: 500px;"></div>
+    
+
+
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/049/671/177/small/tiger-amazing-background-hd-wallpaper-photo.jpeg"
+        alt="Image not found">
+</body>
+</html>

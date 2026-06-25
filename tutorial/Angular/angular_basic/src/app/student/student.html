@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Student List</h1>
+
+  @for (student of studentList; track student.id) {
+    <div>
+      <a [routerLink]="['/user', student.id]">{{ student.name }}</a>
+    </div>
+  } @empty {
+    <p>There are no students on the list.</p>
+  }
+</div>
