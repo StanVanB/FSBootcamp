@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos Catalog - Feedback</title>
+    <!-- Bootstrap 4 CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Custom CSS Document Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="startup_website.html">📷 PhotoAlbum</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="startup_website.html">Home page</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="catalog.html">Catalog</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="feedback.html">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Jumbotron -->
+    <div class="jumbotron jumbotron-fluid text-center bg-primary text-white mb-0">
+        <div class="container">
+            <h1 class="display-4">Image Feedback</h1>
+            <p class="lead">We'd love to hear your thoughts on our collection.</p>
+        </div>
+    </div>
+
+    <!-- Feedback Form Container -->
+    <div class="container my-5" style="max-width: 600px;">
+        <div class="card p-4 shadow-sm">
+            <form id="feedbackForm" onsubmit="return false;">
+                
+                <!-- Username Input Field -->
+                <div class="form-group mb-3">
+                    <label kibd for="username" class="form-label font-weight-bold">Username:*</label>
+                    <input type="text" id="username" class="form-control" placeholder="At least 6 characters">
+                    <!-- Error Message Span -->
+                    <span id="usernameError" class="text-danger small font-weight-bold error-msg">Username must be at least six characters.</span>
+                </div>
+
+                <!-- Image Title Input Field -->
+                <div class="form-group mb-3">
+                    <label for="imageTitle" class="form-label font-weight-bold">Image Title:*</label>
+                    <input type="text" id="imageTitle" class="form-control" placeholder="e.g. Mountain Sunrise">
+                    <!-- Error Message Span -->
+                    <span id="titleError" class="text-danger small font-weight-bold error-msg">Image title cannot be empty.</span>
+                </div>
+
+                <!-- Comment Textarea Field -->
+                <div class="form-group mb-4">
+                    <label for="comment" class="form-label font-weight-bold">Comment:*</label>
+                    <textarea id="comment" class="form-control" rows="4" placeholder="Your feedback..."></textarea>
+                    <!-- Error Message Span -->
+                    <span id="commentError" class="text-danger small font-weight-bold error-msg">Comment cannot be empty.</span>
+                </div>
+
+                <!-- Action Submit Button -->
+                <button type="submit" id="submitBtn" class="btn btn-secondary btn-block" disabled>Submit Feedback</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts: jQuery first, then Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery Validation Logic -->
+    <script>
+        $(document).ready(function() {
+            // Step 8.3: Use jQuery to hide the error messages initially
+            $('.error-msg').hide();
+
+            // Validation variables to check form eligibility
+            let isUserValid = false;
+            let isTitleValid = false;
+            let isCommentValid = false;
+
+            // Helper function to check state and toggle Submit Button styling/activation
+            function checkFormValidity() {
+                if (isUserValid && isTitleValid && isCommentValid) {
+                    // Step 8.7 & 8.8: Activate button and change border / background color
+                    $('#submitBtn').prop('disabled', false)
+                                   .css({
+                                       'background-color': '#28a745',
+                                       'border': '2px solid #1e7e34',
+                                       'color': '#fff'
+                                   });
+                } else {
+                    // Revert button if validation fails down the road
+                    $('#submitBtn').prop('disabled', true)
+                                   .css({
+                                       'background-color': '',
+                                       'border': '',
+                                       'color': ''
+                                   });
+                }
+            }
+
+            // Step 8.4 & 8.5: Use focusout() to catch changes on Username
+            $('#username').focusout(function() {
+                const value = $(this).val().trim();
+                if (value.length < 6) {
+                    $('#usernameError').fadeIn();
+                    isUserValid = false;
+                } else {
+                    $('#usernameError').fadeOut();
+                    isUserValid = true;
+                }
+                checkFormValidity();
+            });
+
+            // Focusout validation for Image Title
+            $('#imageTitle').focusout(function() {
+                const value = $(this).val().trim();
+                if (value === "") {
+                    $('#titleError').fadeIn();
+                    isTitleValid = false;
+                } else {
+                    $('#titleError').fadeOut();
+                    isTitleValid = true;
+                }
+                checkFormValidity();
+            });
+
+            // Focusout validation for Comment Textarea
+            $('#comment').focusout(function() {
+                const value = $(this).val().trim();
+                if (value === "") {
+                    $('#commentError').fadeIn();
+                    isCommentValid = false;
+                } else {
+                    $('#commentError').fadeOut();
+                    isCommentValid = true;
+                }
+                checkFormValidity();
+            });
+
+            // Optional submission confirm alert
+            $('#submitBtn').click(function() {
+                if (!$(this).prop('disabled')) {
+                    alert('Feedback submitted successfully!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

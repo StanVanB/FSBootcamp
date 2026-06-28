@@ -1,0 +1,47 @@
+/* --- Home Page Styles (Step 6 Cleanup) --- */
+body {
+    background-color: lightblue; /* Fixed syntax error from the snippet */
+}
+
+h1 {
+    color: white; /* Fixed property name from the snippet */
+    text-align: center;
+}
+
+p {
+    font-family: Verdana, sans-serif;
+    font-size: 20px;
+}
+
+/* --- Catalog Page Styles (Step 7 Prep) --- */
+.catalog-img {
+    border: 3px solid #343a40; /* Styled border for images */
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.catalog-img:hover {
+    transform: scale(1.03); /* Subtle hover effect */
+}
+
+.catalog-title {
+    font-family: 'Georgia', serif; /* Custom font for titles */
+    color: #2c3e50; /* Custom color for titles */
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* --- Responsive Layout Adjustments (Step 7.5 Media Queries) --- */
+/* Target 9-inch tablets and up (768px) */
+@media (min-width: 768px) {
+    .jumbotron {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Target laptops and desktops (992px) */
+@media (min-width: 992px) {
+    .jumbotron {
+        padding: 6rem 2rem;
+    }
+}
