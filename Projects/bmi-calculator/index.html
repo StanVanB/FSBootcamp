@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <!-- Include Bootstrap for clean layout styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <style>
+        .bmi-img {
+            display: none;
+            max-width: 150px;
+            margin: 15px auto;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5" style="max-width: 500px;">
+        <div class="card shadow p-4">
+            <h2 class="text-center text-primary mb-4">⚖️ BMI Calculator</h2>
+            
+            <form id="bmiForm">
+                <!-- Weight Input Field -->
+                <div class="mb-3">
+                    <label for="weight" class="form-label fw-bold">Weight in kilograms:</label>
+                    <input type="number" step="0.1" id="weight" class="form-control" placeholder="e.g. 70" required>
+                </div>
+
+                <!-- Height Input Field -->
+                <div class="mb-3">
+                    <label for="height" class="form-label fw-bold">Height in meters:</label>
+                    <input type="number" step="0.01" id="height" class="form-control" placeholder="e.g. 1.75" required>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-between mt-4">
+                    <button type="submit" class="btn btn-primary px-4">Calculate</button>
+                    <button type="button" id="resetBtn" class="btn btn-secondary px-4">Reset</button>
+                </div>
+            </form>
+
+            <hr class="my-4">
+
+            <!-- Results Section -->
+            <div class="text-center">
+                <h3>Your Results</h3>
+                <p class="fw-bold fs-5 text-muted" id="resultsParagraph">Results: Enter your values above to calculate.</p>
+                
+                <!-- Corresponding Images for the 4 BMI Types -->
+                <div id="imageContainer">
+                    <img id="imgUnderweight" class="bmi-img img-fluid rounded" src="https://placehold.co/150x150?text=Underweight" alt="Underweight Graphic">
+                    <img id="imgNormal" class="bmi-img img-fluid rounded" src="https://placehold.co/150x150?text=Normal+Weight" alt="Normal Weight Graphic">
+                    <img id="imgOverweight" class="bmi-img img-fluid rounded" src="https://placehold.co/150x150?text=Overweight" alt="Overweight Graphic">
+                    <img id="imgObese" class="bmi-img img-fluid rounded" src="https://placehold.co/150x150?text=Obese" alt="Obese Graphic">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript logic for calculation and interface changes -->
+    <script>
+        const bmiForm = document.getElementById('bmiForm');
+        const weightInput = document.getElementById('weight');
+        const heightInput = document.getElementById('height');
+        const resultsParagraph = document.getElementById('resultsParagraph');
+        const resetBtn = document.getElementById('resetBtn');
+        const bmiImages = document.querySelectorAll('.bmi-img');
+
+        // Function to hide all body type images
+        function hideAllImages() {
+            bmiImages.forEach(img => img.style.display = 'none');
+        }
+
+        // Handle Calculate Form Submission
+        bmiForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page refresh
+            hideAllImages();
+
+            const weight = parseFloat(weightInput.value);
+            const height = parseFloat(heightInput.value);
+
+            if (weight > 0 && height > 0) {
+                // Formula: BMI = weight / (height * height)
+                const bmi = weight / (height * height);
+                let category = "";
+                let activeImageId = "";
+
+                // Categorize based on criteria
+                if (bmi <= 18.5) {
+                    category = "Under weight";
+                    activeImageId = "imgUnderweight";
+                } else if (bmi <= 24.9) {
+                    category = "Normal weight";
+                    activeImageId = "imgNormal";
+                } else if (bmi <= 29.9) {
+                    category = "Overweight";
+                    activeImageId = "imgOverweight";
+                } else {
+                    category = "Obese";
+                    activeImageId = "imgObese";
+                }
+
+                // Display numerical results and type
+                resultsParagraph.innerHTML = `Results: Your BMI is <span class="text-dark">${bmi.toFixed(2)}</span> (${category})`;
+                
+                // Show corresponding category image
+                document.getElementById(activeImageId).style.display = 'block';
+            }
+        });
+
+        // Handle Reset Action Button
+        resetBtn.addEventListener('click', function() {
+            bmiForm.reset();
+            resultsParagraph.innerText = "Results: Enter your values above to calculate.";
+            hideAllImages();
+        });
+    </script>
+</body>
+</html>
