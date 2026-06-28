@@ -27,6 +27,7 @@
             <div class="form-group mb-3">
                 <label for="category" class="form-label">Category:</label>
                 <select id="category" class="form-control">
+                    <option value="">Choose...</option> <!-- This is the new line -->
                     <option value="Work">Work</option>
                     <option value="Personal">Personal</option>
                     <option value="Education">Education</option>
@@ -37,6 +38,7 @@
             <div class="form-group mb-3">
                 <label for="priority" class="form-label">Priority Level:</label>
                 <select id="priority" class="form-control">
+                    <option value="">Choose...</option> <!-- ADD THIS LINE HERE -->
                     <option value="Low">Low</option>
                     <option value="Medium">Medium</option>
                     <option value="High">High</option>
@@ -47,6 +49,7 @@
             <div class="form-group mb-3">
                 <label for="progress" class="form-label">Progress Level:</label>
                 <select id="progress" class="form-control">
+                    <option value="">Choose...</option> <!-- ADD THIS LINE HERE -->
                     <option value="Not Started">Not Started</option>
                     <option value="In Progress">In Progress</option>
                     <option value="Completed">Completed</option>
@@ -54,8 +57,25 @@
             </div>
 
             <!-- Submit Button styled with Bootstrap -->
-            <button type="submit" class="btn btn-primary">Submit Task</button>
+            <button type="submit" class="btn btn-primary" onclick="validateInputs()">Submit Task</button>
         </form>
     </div>
+    <script>
+        function validateInputs() {
+            // 1. Grab the elements
+            const title = document.getElementById("title").value.trim();
+            const description = document.getElementById("description").value.trim();
+            const category = document.getElementById("category").value;
+            const priority = document.getElementById("priority").value;
+            const progress = document.getElementById("progress").value;
+
+            // 2. Check if they are empty
+            if (title === "") { alert("Title is empty"); return; }
+            if (description === "") { alert("Description is empty"); return; }
+            if (category === "") { alert("Category is empty"); return; }
+            if (priority === "") { alert("Priority Level is empty"); return; }
+            if (progress === "") { alert("Progress Level is empty"); return; }
+        }
+    </script>
 </body>
 </html>
