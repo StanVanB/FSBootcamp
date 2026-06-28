@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA // Premium Audio & Tech</title>
+  <!-- Bootstrap 5.3 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+
+    /* STEP 4: Custom Tab Hover Effect */
+    .navbar-nav .nav-link {
+      position: relative;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #ffc107;
+      transition: width 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    /* STEP 7: Responsive Navbar Background Colors */
+    @media (max-width: 575.98px) {
+      .custom-nav { background-color: #111111 !important; }
+    }
+    @media (min-width: 576px) and (max-width: 991.98px) {
+      .custom-nav { background-color: #1c2d3d !important; }
+    }
+    @media (min-width: 992px) {
+      .custom-nav { background-color: #0f172a !important; }
+    }
+
+    /* Card Custom Polish */
+    .product-card {
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .product-img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* STEP 7: Custom Layout rule for small screens (< 400px) */
+    @media (max-width: 399.98px) {
+      .custom-row {
+        display: flex;
+        flex-direction: column;
+      }
+      .custom-col {
+        width: 100% !important;
+        margin-bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STEP 4: Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark custom-nav sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">AURA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-3">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- STEP 3: Jumbotron Hero Section with LOCAL BACKGROUND IMAGE -->
+  <div class="position-relative overflow-hidden text-center justify-content-center align-items-center" style="min-height: 450px; background: url('images/hero-bg.jpg') no-repeat center center; background-size: cover;">
+    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7));"></div>
+    <div class="position-relative p-5 text-white my-5">
+      <span class="text-warning text-uppercase fw-bold small">New Arrivals</span>
+      <h1 class="display-3 fw-bold mt-2">Sound, Redefined.</h1>
+      <p class="lead fw-light">Explore premium acoustics and studio-grade wireless hardware designed for creators.</p>
+      <a class="btn btn-warning btn-lg px-4 py-2 fw-semibold mt-3 rounded-pill" href="#">Explore Collection</a>
+    </div>
+  </div>
+
+  <!-- STEP 5: Shopping Cards (3 Columns, each with 2 Cards using LOCAL IMAGES) -->
+  <div class="container my-5 pt-4">
+    <div class="row custom-row g-4">
+      
+      <!-- Column 1 -->
+      <div class="col-sm-4 custom-col">
+        <!-- Card 1 -->
+        <div class="card product-card h-100 mb-4">
+          <img src="images/headphones.jpg" class="card-img-top product-img" alt="Over-Ear Headphones">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-1">Aura Studio Over-Ear</h5>
+              <p class="small text-muted">Active Noise Cancellation</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-dark">$299.00</span>
+              <a href="#" class="btn btn-dark btn-sm rounded-pill px-3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card product-card h-100">
+          <img src="images/earbuds.jpg" class="card-img-top product-img" alt="Wireless Earbuds">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-1">Aura Buds Pro</h5>
+              <p class="small text-muted">Waterproof Smart Touch</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-dark">$149.00</span>
+              <a href="#" class="btn btn-dark btn-sm rounded-pill px-3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="col-sm-4 custom-col">
+        <!-- Card 3 -->
+        <div class="card product-card h-100 mb-4">
+          <img src="images/speaker.jpg" class="card-img-top product-img" alt="Bluetooth Speaker">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-1">Aura Move Speaker</h5>
+              <p class="small text-muted">360° Omnidirectional Sound</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-dark">$199.00</span>
+              <a href="#" class="btn btn-dark btn-sm rounded-pill px-3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="card product-card h-100">
+          <img src="images/keyboard.jpg" class="card-img-top product-img" alt="Mechanical Keyboard">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-1">Tactile Pro Keyboard</h5>
+              <p class="small text-muted">Hot-swappable Mechanical</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-dark">$129.00</span>
+              <a href="#" class="btn btn-dark btn-sm rounded-pill px-3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="col-sm-4 custom-col">
+        <!-- Card 5 -->
+        <div class="card product-card h-100 mb-4">
+          <img src="images/mouse.jpg" class="card-img-top product-img" alt="Wireless Mouse">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-1">Precision Glide Mouse</h5>
+              <p class="small text-muted">Ergonomic Dynamic Tracking</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-dark">$79.00</span>
+              <a href="#" class="btn btn-dark btn-sm rounded-pill px-3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="card product-card h-100">
+          <img src="images/lamp.jpg" class="card-img-top product-img" alt="Smart Desktop Lamp">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-1">Aura Ambient Desk Lamp</h5>
+              <p class="small text-muted">RGB Sync & Wireless Charging</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="fs-5 fw-bold text-dark">$95.00</span>
+              <a href="#" class="btn btn-dark btn-sm rounded-pill px-3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- STEP 6: Website Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5 border-top border-secondary">
+    <div class="container">
+      <p class="mb-0 small text-muted">&copy; 2026 AURA Inc. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
